@@ -42,3 +42,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+# auth
+/api-client/auto.json
+# js-compiler
+/api-client/api/*

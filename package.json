@@ -8,9 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev": "cd api-client & tsc -w",
-    "client": "nodemon api-client/api/index",
-    "mongo": "cd api-client & mongod --dbpath=./mongoDB"
+    "dev-client": "concurrently \"cd api-client & tsc -w\" \"nodemon api-client/api/index\""
   },
   "private": true,
   "dependencies": {
@@ -22,6 +20,9 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@fortawesome/fontawesome-free": "^5.8.1",
+    "bootstrap": "^4.3.1",
+    "concurrently": "^4.1.0",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
     "mongoose": "^5.4.19",

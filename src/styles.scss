@@ -1,1 +1,213 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Marvel:400,700,700i');
+@import url('https://use.fontawesome.com/releases/v5.8.1/css/all.css');
+
+$bgColor: #20262b;
+$fgColor:#c62b29;
+$headerFooterColor:#1c2125;
+$white:#ffffff;
+$greyPallete:#d0edee;
+$bluePallete:#2e666e;
+
+body{
+    font-family: 'Marvel', sans-serif;
+    background-color: $bgColor;
+}
+header, footer{
+    background-color: $headerFooterColor;
+}
+h1, h2, h3, span, p,small{
+    font-family: 'Marvel', sans-serif;
+    color:$greyPallete;
+}
+a{
+    color: $fgColor;
+}
+button:hover{
+    opacity: 0.8;
+}
+a:hover{
+    opacity: 0.8;
+    color: $fgColor;
+}
+button.btn.btn-primary{
+    background-color:   $bluePallete;
+    border: 1px solid $bluePallete;     
+}
+header.header {
+    border-bottom: 1px solid $greyPallete;
+}
+.row.header-row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    form.form-login-header {
+        width: fit-content;
+        float: right;
+    }
+    .form-group {
+        display: inline-block;
+        margin: 0;
+    }
+    button.btn.btn-primary {
+        float: right;
+    }
+    .form-login-header .form-group input[type=email]{
+        margin: 0;
+    }
+    .form-login-header .form-group input {
+        width: 230px;
+        float: left;
+        margin: 0px 10px;
+    }
+    .form-group.form-check.forgot {
+        display: block;
+        color: white;
+        margin: 0;
+        padding: 0;
+        input#Remember-me {
+            width: fit-content;
+            margin: 6px;
+        }
+        a#forgot-link {
+            float: right;
+        }
+    }
+}
+section.banner-home{
+    background-image: url('./assets/img/bg-home.jpg');
+    padding: 20px 0 50px 0;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    h1#meet-home {
+        text-align: center;
+        font-size: 72pt;
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 5%;
+        font-weight: 900;
+        border: 1px solid $greyPallete;
+    }
+    form.form-home-singin{
+        margin-bottom: 25px;
+        .form-group{
+            margin-bottom: 5px;
+        }
+        small#small-terms {
+            float: right;
+            width: 75%;
+        }
+    }
+    .another-way-to-sing {
+        position: absolute;
+        padding: 8px 15px;
+        background:$bgColor;
+        bottom: -50px;
+        font-size: 14pt;
+        a.options {
+            padding: 0 10px;
+        }
+    }
+    h3{
+        font-weight: 600;
+        font-size: 22pt;
+    }
+}
+section.middle-home {
+    margin: 15px 0;
+    .what-to-watch {
+        border: 1px solid #d0edee;
+        padding: 10px;
+        span{
+            font-size: 18pt
+        }
+        p{
+            font-size: 13pt;
+        }
+    }
+}
+section.search-home{
+    .search-area{
+        form.form-home-search{
+            position: relative;
+            width: 45%;
+            button.search-btn {
+                position: absolute;
+                top: 3px;
+                right: 5px;
+                font-size: 16pt;
+                background: transparent;
+                border: none;
+            }
+        }
+        .genders-movie, .cast-movie {
+            width: 50%;
+            float: left;
+        }
+    }
+}
+section.best-movies {
+    margin: 30px 0;
+}
+footer.footer-home{
+    padding: 25px 0;
+    ul{
+        list-style: none;
+    }
+    ul.social-media {
+        list-style: none;
+        display: inline-block;
+        padding: 0;
+        li{
+            display: inline-block;
+            background-color: $bluePallete;
+            border-radius: 50%;
+            margin: 0 5px;
+            width: 40px;
+            height: 40px;
+            font-size: 15pt;
+            a{
+                padding: 10px;
+                position: relative;
+                top: 5px;
+                left: 3px;
+            }
+        }
+    }
+}
+@media only screen and (max-width:768px){
+    section.banner-home{
+        background-image: url('./assets/img/bg-mobile.jpg');
+    }
+    .row.header-row .form-login-header .form-group input {
+        width: 100%;
+    }
+    section.banner-home h1#meet-home {
+        position: relative;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+    }
+    section.banner-home form.form-home-singin {
+        margin-bottom: 20px;
+    }
+    section.banner-home .another-way-to-sing {
+        position: relative;
+        padding: 8px 15%;
+    }
+    .what-you-discover {
+        margin: 15px 0;
+    }
+    section.search-home .search-area form.form-home-search {
+        width: 100%;
+    }
+    .row.header-row button.btn.btn-primary {
+        float: unset;
+    }
+    .row.header-row .form-group.form-check.forgot a#forgot-link {
+        float: left;
+        margin: 0 20px 0px 0;
+    }
+}
