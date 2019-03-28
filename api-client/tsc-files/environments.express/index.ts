@@ -1,11 +1,13 @@
 import express from "express";
 import { mongoDb } from "../providersDB/mongoCon";
-
+import { User } from "../classes/interfaces";
+import { Auth } from "../classes/auth";
 
 const app = express()
 const port:number = 3000;
 const hostname:string = 'localhost';
 const db = new mongoDb;
+const auth = new Auth()
 
 app.use(express.json());
 app.use(function(req:express.Request, res:express.Response, next:express.NextFunction) {
@@ -16,18 +18,23 @@ app.use(function(req:express.Request, res:express.Response, next:express.NextFun
 });
 
 app.listen(port,hostname,()=>{
-    console.log(`Server is runing http://${hostname}:${port}`)
-})
+    console.log(`Server is runing http://${hostname}:${port}`);
+});
 
-app.route('/login').get((req, res)=>{
-    db.findUser().then(doc=>{
-        res.json(doc)
+app.route('/login').post((req, res)=>{
+    let loginAcess:User = req.body;
+    db.findUser(loginAcess).then(doc=>{
+        res.json(doc);
+    }).catch(err=>{
+        console.log(err);
+    });
+});
+
+app.route('/randomMovie').get((req, res, next)=>{
+    db.findRandomMovie().then(item=>{
+        res.json(item);
+        next();
     }).catch(err=>{
         console.log(err)
-    }) 
-})
-app.route('/teste').post((req,res,next)=>{
-    console.log('post')
-    res.json({msg:"sucess", ...req.body});
-    next()
+    })
 })

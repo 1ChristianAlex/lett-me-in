@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { readJson } from "../classes/readJson";
 import { schemaDB } from "./schema";
 import { mongoOption } from "./mongoOpt";
+import { User, movieInterface } from "../classes/interfaces";
 
 export class mongoDb {
     private readF = new readJson();
@@ -23,15 +24,29 @@ private closeCon(){
         console.log('Disconnect')
     })
 }
-public findUser(){
+public findUser(userParm:User){
     return new Promise((res,rej)=>{
         this.openCon(()=>{
             let user = this.mongoD.model('User', schemaDB.User);
-            user.find().then(doc=>{
+            user.find(userParm).then((doc:User[])=>{
                 res(doc)
-                this.closeCon()
+                this.closeCon();
             }).catch(err=>{
                 rej(err)
+                this.closeCon();
+            })
+        })
+    })
+}
+public findRandomMovie(){
+    return new Promise((res,rej)=>{
+        this.openCon(()=>{
+            let movie = this.mongoD.model('movie',schemaDB.movieSchema);
+            movie.findOne().then((movieResult:any)=>{ 
+                res(movieResult);
+                this.closeCon();
+            }).catch(err=>{
+                rej(err);
             })
         })
     })
