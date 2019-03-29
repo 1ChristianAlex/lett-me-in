@@ -1,3 +1,15 @@
 https://github.com/prust/wikipedia-movie-data
 https://github.com/prust/wikipedia-movie-data/blob/master/genres.json
 https://github.com/dduril/Movies-JSON
+
+use lett_me_in
+db.createUser(
+   {
+     user: "root",
+     pwd: "letmeinapp",
+     roles:
+       [
+         { role: "readWrite", db: "lett_me_in" }
+       ]
+   }
+)

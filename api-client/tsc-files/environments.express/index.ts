@@ -29,7 +29,13 @@ app.route('/login').post((req, res)=>{
         console.log(err);
     });
 });
+app.route('/createUser').post((req,res)=>{
+    let postUser:User = req.body;
 
+    db.createUser(postUser).then(r=>{
+        res.json(r)
+    })
+})
 app.route('/randomMovie').get((req, res, next)=>{
     db.findRandomMovie().then(item=>{
         res.json(item);

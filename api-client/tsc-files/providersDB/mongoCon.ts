@@ -24,6 +24,36 @@ private closeCon(){
         console.log('Disconnect')
     })
 }
+public createUser(user:User){
+    
+    const verifyUser = (user:User):boolean=>{
+        let canSing:boolean = false;
+        if (user.userName !==' '|| user.pw !==' ') {
+            canSing = true
+        }
+        return canSing;
+    }
+    
+    return new Promise((res,rej)=>{
+        if (verifyUser(user) == true) {
+            let mUser = this.mongoD.model('user',schemaDB.User);
+            this.openCon(()=>{
+                mUser.create(user).then(u=>{
+                    console.log(u)
+                    res({
+                        res:res,
+                        user:user
+                    })
+                })
+                .catch(err=>{
+                    rej(err)
+                })
+            })
+        }
+        
+        
+    })
+}
 public findUser(userParm:User){
     return new Promise((res,rej)=>{
         this.openCon(()=>{
@@ -86,4 +116,3 @@ public insertMongoMovies(){
         }
         
     }
-    
