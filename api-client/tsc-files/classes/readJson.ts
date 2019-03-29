@@ -1,6 +1,5 @@
 import fs from 'fs';
 
-
 export class readJson {
     public readCategories():Array<string>{
         let data =  fs.readFileSync('../api/categories.json');

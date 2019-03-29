@@ -7,10 +7,6 @@ const User = new Schema({
     password:String
 })
 const movieSchema = new Schema({
-    movie_id:{
-        type:Number,
-        required:false
-    },
     title:{
         type:String,
         required:true
