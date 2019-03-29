@@ -21,22 +21,32 @@ app.listen(port,hostname,()=>{
     console.log(`Server is runing http://${hostname}:${port}`);
 });
 
-app.route('/login').post((req, res)=>{
+app.route('/login').post((req, res, next)=>{
     let loginAcess:User = req.body;
     db.findUser(loginAcess).then(doc=>{
         res.json(doc);
+        next();
     }).catch(err=>{
         console.log(err);
     });
 });
-app.route('/createUser').post((req,res)=>{
+app.route('/createUser').post((req, res, next)=>{
     let postUser:User = req.body;
 
     db.createUser(postUser).then(r=>{
         res.json(r)
+        next();
     })
 })
 app.route('/randomMovie').get((req, res, next)=>{
+    db.findRandomMovie().then(item=>{
+        res.json(item);
+        next();
+    }).catch(err=>{
+        console.log(err)
+    })
+})
+app.route('/actorRank').get((req, res, next)=>{
     db.findRandomMovie().then(item=>{
         res.json(item);
         next();
