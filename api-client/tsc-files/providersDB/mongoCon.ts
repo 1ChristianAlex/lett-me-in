@@ -44,9 +44,11 @@ public createUser(user:User){
                         res:res,
                         user:user
                     })
+                    this.closeCon()
                 })
                 .catch(err=>{
                     rej(err)
+                    
                 })
             })
         }
@@ -60,10 +62,9 @@ public findUser(userParm:User){
             let user = this.mongoD.model('User', schemaDB.User);
             user.find(userParm).then((doc:User[])=>{
                 res(doc)
-                this.closeCon();
+                this.closeCon()
             }).catch(err=>{
                 rej(err)
-                this.closeCon();
             })
         })
     })
@@ -90,7 +91,7 @@ public insertMongoMovies(){
                 ).then(res=>{
                     console.log(res);
                     console.log(item)
-                    
+                    this.closeCon();
                 }).catch(err=>{
                     console.log(err)
                 })
@@ -107,6 +108,7 @@ public insertMongoMovies(){
                     item
                     ).then(res=>{
                         console.log(res);
+                        this.closeCon();
                     }).catch(err=>{
                         console.log(err)
                     })
