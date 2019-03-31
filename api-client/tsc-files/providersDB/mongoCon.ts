@@ -7,18 +7,17 @@ import { User, movieInterface } from "../classes/interfaces";
 export class mongoDb {
     private mongoD = mongoose;
     
-    private openCon(call:Function){
+    public openCon(){
         this.mongoD.connect(`mongodb://${mongoOption.mongoString.ip}/${mongoOption.mongoString.db}`,{
         ...mongoOption.mongoCon
     }).then((res)  =>{
-        console.log('Connect');       
-        call();
+        console.log('Connect');
     })
 }
 
 
 
-private closeCon(){
+public closeCon(){
     this.mongoD.disconnect().then(dis=>{
         console.log('Disconnect')
     })
@@ -36,19 +35,19 @@ public createUser(user:User){
     return new Promise((res,rej)=>{
         if (verifyUser(user) == true) {
             let mUser = this.mongoD.model('user',schemaDB.User);
-            this.openCon(()=>{
-                mUser.create(user).then(u=>{
-                    console.log(u)
-                    res({
-                        res:res,
-                        user:user
-                    });
-                })
-                .catch(err=>{
-                    rej(err)
-                    
-                })
+            
+            mUser.create(user).then(u=>{
+                console.log(u)
+                res({
+                    res:res,
+                    user:user
+                });
             })
+            .catch(err=>{
+                rej(err)
+                
+            })
+            
         }
         
         
@@ -56,42 +55,100 @@ public createUser(user:User){
 }
 public findUser(userParm:User){
     return new Promise((res,rej)=>{
-        this.openCon(()=>{
-            let user = this.mongoD.model('User', schemaDB.User);
-            user.find(userParm).then((doc:User[])=>{
-                res(doc)
-            }).catch(err=>{
-                rej(err)
-            });
+        
+        let user = this.mongoD.model('User', schemaDB.User);
+        user.find(userParm).then((doc:User[])=>{
+            res(doc)
+        }).catch(err=>{
+            rej(err)
         });
     });
+    
+}
+public countUsers(){
+    return new Promise((res,rej)=>{
+        let user = this.mongoD.model('User', schemaDB.User);
+        user.find().countDocuments()
+        .then((count)=>{
+            res(count)
+        }).catch(err=>{
+            rej(err)
+        });
+    });
+    
 }
 public findRandomMovie(){
+    let randonNumber = () =>{
+        let random =  (Math.floor((Math.random() * 100) +1));
+        let year = new Date().getFullYear().toString();
+        let actualyear = parseInt(`${year[2]}${year[3]}`);
+        if (random > actualyear) {
+            return `19${random}`
+        }
+        else{
+            return `20${random}`
+        }
+    }
     return new Promise((res,rej)=>{
-        this.openCon(()=>{
-            let movie = this.mongoD.model('movie',schemaDB.movieSchema);
-            movie.findOne().then((movieResult:any)=>{ 
-                res(movieResult);
-                this.closeCon();
-            }).catch(err=>{
-                rej(err);
-            });
+        let ran = randonNumber();
+        let movie = this.mongoD.model('movie',schemaDB.movieSchema);
+        movie.find({release_year:ran}).limit(1)
+        .then((movieResult:any)=>{ 
+            res(movieResult);
+            
+        }).catch(err=>{
+            rej(err);
         });
     });
 }
-
+public findMovieCategorie(categorie:string,limit:number = 20){
+    return new Promise((res,rej)=>{
+        let movie = this.mongoD.model('movie',schemaDB.movieSchema);
+        movie.find({category_name:categorie}).$where('this.release_year >= 2010')
+        .limit(limit)
+        .then((movieResult:any)=>{ 
+            res(movieResult);
+        }).catch(err=>{
+            rej(err);
+        });
+    });
+}
+public listRecentMovie(){
+    return new Promise((res,rej)=>{
+        
+        let movie = this.mongoD.model('movie',schemaDB.movieSchema);
+        movie.find().$where('this.release_year >= 2010')
+        .limit(20)
+        .then((movieResult:any)=>{ 
+            res(movieResult);
+            
+        }).catch(err=>{
+            rej(err);
+        });
+    });
+}
 public actorRank(){
     return new Promise((res,rej)=>{
-        this.openCon(()=>{
-            let actor = this.mongoD.model('actor',schemaDB.actors);
-            actor.findOne().$where(()=>{
-                'return this.rating > 1500'
-            }).limit(10).then((actorResult:any)=>{ 
-                res(actorResult);
-                this.closeCon();
-            }).catch(err=>{
-                rej(err);
-            });
+        
+        let actor = this.mongoD.model('actor',schemaDB.actors);
+        actor.find({}).$where('this.rating > 1000')
+        .limit(20).sort('name')
+        .then((actorResult:any)=>{ 
+            res(actorResult);
+            
+        }).catch(err=>{
+            rej(err);
+        });
+    });
+}
+public getCategorie(){
+    return new Promise((res,rej)=>{
+        
+        let categorie = this.mongoD.model('categorie',schemaDB.categorie);
+        categorie.find({}).then((cate)=>{
+            res(cate)
+        }).catch(err=>{
+            rej(err)
         });
     });
 }
@@ -127,7 +184,7 @@ public insertMongoMovies(){
             user.create(item).then(res=>{
                 console.log(res);
                 console.log(item)
-                this.closeCon();
+                
             }).catch(err=>{
                 console.log(err)
             })
@@ -136,13 +193,26 @@ public insertMongoMovies(){
     })
 }
 public insertMongoActors(){
-    
     this.openCon(()=>{
         let user = this.mongoD.model('actor',schemaDB.actors)
         this.readF.readActors().forEach(item=>{
             user.create(item).then(res=>{
                 console.log(res);
-                this.closeCon();
+                
+            }).catch(err=>{
+                console.log(err)
+            })
+        })
+        
+    })
+}
+public insertMongoCategories(){
+    this.openCon(()=>{
+        let user = this.mongoD.model('categorie',schemaDB.categorie)
+        this.readF.readCategories().forEach(item=>{
+            user.create({categorie:item}).then(res=>{
+                console.log(res);
+                
             }).catch(err=>{
                 console.log(err)
             })

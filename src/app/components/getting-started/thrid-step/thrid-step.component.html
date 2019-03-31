@@ -1,0 +1,93 @@
+<section class="rate-movies">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="rated-range">
+          <div class="rated-txt">
+            <span>
+              you've rated {{progressCount}} movies
+            </span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="rate-title">
+          <h1>
+            Rate Movies that You've Watch
+          </h1>
+          <p>
+            You have to Watch learns about your personal tastes from your ratings.
+          </p>
+          <p>
+            <strong>Rate 20 more movies</strong> to get personalized recomendations!
+          </p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="finish-btn">
+          <a routerLink=" '/path'">I'm finished rating</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<main class="main-thrid-step">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="side-bar-thrid-step">
+          <div class="input-movie-search">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-movie-side" placeholder="Movie, Actor">
+              </div>
+            </form>
+          </div>
+          <div class="favorites-categories">
+            <h2>Favorites Categories</h2>
+            <ul>
+              <li *ngFor="let fav of favCategorie">
+                <a href="{{fav}}">
+                  {{fav}}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="more-categories">
+            <h2>More Categories</h2>
+            <ul>
+              <li *ngFor="let more of moreCategorie">
+                <a href="{{more}}">
+                  {{more}}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="grid-movies">
+          <div class="row">
+          <div class="grid-20-persent" *ngFor="let eachMovie of eachMovieByCateg">
+            <div class="movie-item " >
+              <div class="movie-img">
+                <img src="../../../../assets/img/imageDedault.png" alt="{{eachMovie?.title}}" class="img-fluid">
+              </div>
+              <div class="movie-desc">
+                <h1>{{eachMovie?.title}} - {{eachMovie?.release_year}}</h1>
+                <h2>Start</h2>
+                <div class="btn-position">
+                    <button type="button" class="btn" name="{{eachMovie?.title}}" value="{{eachMovie?.title}}" (click)="addMovieUser(eachMovie.title, eachMovie.category_name)">Want to Watch</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>

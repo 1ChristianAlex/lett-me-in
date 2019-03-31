@@ -1,0 +1,40 @@
+<section class="first-step">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-first-step">
+          <h1>Set a Watching Goal</h1>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="challeng-txt">
+          <p>Join {{countUser}} other whatchers in the {{year}} You Have to Watch Whating Challenge</p>
+          <p>Tell You Have to Watch how many movies you want to read this year, and we'll help you stay on track</p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="box">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="../../../../assets//img/imageDedault.png" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+              <form class="form-step-one" (ngSubmit) = "takeChallend()">
+                <h2>I want to watch 
+                  <input class="form-control" placeholder="Quantity" type="text" [(ngModel)]="qntMovieChallend" name="qntMovie">
+                  movies in {{year}}
+                </h2>
+                <div class="btn-first-step">
+                  <button type="submit" class="btn">
+                    Take the Challenge
+                  </button>
+                </div>
+              </form>
+              <a [routerLink]="[ '/signin/second']">Skip this challeng</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

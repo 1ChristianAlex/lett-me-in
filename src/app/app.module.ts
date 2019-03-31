@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +12,13 @@ import { MiddleHomeComponent } from './components/login-home/middle-home/middle-
 import { SearchHomeComponent } from './components/login-home/search-home/search-home.component';
 import { FooterHomeComponent } from './components/login-home/footer-home/footer-home.component';
 import { TheBestMovieComponent } from './components/login-home/the-best-movie/the-best-movie.component';
+import { GettingStartedComponent } from './components/getting-started/getting-started.component';
+import { HeaderStartComponent } from './components/getting-started/header-start/header-start.component';
+import { FirstStepComponent } from './components/getting-started/first-step/first-step.component';
+import { SecondStepComponent } from './components/getting-started/second-step/second-step.component';
+import { ThridStepComponent } from './components/getting-started/thrid-step/thrid-step.component';
+
+
 
 @NgModule({
   declarations: [
@@ -20,11 +29,18 @@ import { TheBestMovieComponent } from './components/login-home/the-best-movie/th
     MiddleHomeComponent,
     SearchHomeComponent,
     FooterHomeComponent,
-    TheBestMovieComponent
+    TheBestMovieComponent,
+    GettingStartedComponent,
+    HeaderStartComponent,
+    FirstStepComponent,
+    SecondStepComponent,
+    ThridStepComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

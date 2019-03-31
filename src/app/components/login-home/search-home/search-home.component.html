@@ -11,22 +11,33 @@
                 <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
             </form>
 
-            <div class="genders-movie">
-              <a href="#">Action</a>
+            <div class="genders-movie" >
+              <ul>
+                <li *ngFor="let Categ of arrayCateg">
+                  <a href="#">{{Categ?.categorie}}</a>
+                </li>
+              </ul>
             </div>
             <div class="cast-movie">
-                <a href="#">Samuel L. Jackson</a>
+              <ul>
+                <li *ngFor="let actor of arrayActor">
+                  <a href="#">{{actor?.name}}</a>
+                </li>
+              </ul>
               </div>
         </div>
       </div>
       <div class="col-md-3  ">
         <div class="ramdom-splash">
+          <h1>Random Movie</h1>
           <div class="movie-content">
             <div class="movie-img">
-              <img src="" alt="">
+             <a href="#">
+              <img class="img-fluid" src="../../../../assets/img/imageDedault.png" alt="{{randomMovie?.title}}">
+             </a>
             </div>
-            <h1 class="h1">Spider-man</h1>
-            <p class="movie-spec">TwipTwipTwipTwip</p>
+            <h2 class="h2">{{randomMovie?.title}}</h2>
+            <p class="movie-spec">{{randomMovie?.release_year}} - {{randomMovie?.category_name}}</p>
           </div>
         </div>
       </div>

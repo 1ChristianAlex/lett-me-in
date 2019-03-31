@@ -1,0 +1,28 @@
+<section class="second-step-signin">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-second-step">
+          <h1>Next, select your favorite categories</h1>
+          
+          <h3>We use your favorite categories to make better movies recomendations and tailor what you see in your Updates feed.</h3>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="categories-section">
+          <ul>
+            <li class="categorie-item" *ngFor="let singleCateg of categories; let i = index">
+                <input  type="checkbox" value="{{singleCateg.categorie}}" name="{{singleCateg.categorie}}" id="{{singleCateg.categorie}}">
+                <label for="{{singleCateg.categorie}}">{{singleCateg.categorie}}</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="btn-second-step">
+          <button type="button" class="btn" (click)="getUserCategoies()">Select at least one categorie to continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

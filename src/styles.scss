@@ -115,6 +115,11 @@ section.banner-home{
     }
 }
 section.middle-home {
+    .bg-discobery {
+        background-image:linear-gradient(#20262b,#22262b,#282528, #c72724);
+        padding: 15px 0;
+        border-radius: 5px;
+    }
     margin: 15px 0;
     .what-to-watch {
         border: 1px solid #d0edee;
@@ -126,8 +131,60 @@ section.middle-home {
             font-size: 13pt;
         }
     }
+    .what-you-discover {
+        display: inline-block;
+        
+        
+        small{
+            display: inline-block;
+            width: 100%;
+        }
+        .movie-discover{
+            width: 78%;
+            float: left;
+        }
+        .img-home-discovery{
+            margin-right: 1%;
+            img{
+                width: 24%;
+            }
+        }
+    }
+    .arrow-result {
+        width: fit-content;
+        float: left;
+        margin: 8% 0;
+        margin-right: 1%;
+    }
+    .result-discovery{
+        width: 19%;
+        float: left;
+        position: relative;
+        small{
+            position: absolute;
+            top: -20px;
+        }
+    }
+    .content-love {
+        margin: 0 0 13px 0;
+        .movie-img{
+            width: 100%;
+            a {
+                width: 20%;
+                img{
+                    width: 24%;
+                    margin: 0 0.5%;
+                }
+            }
+        }
+    }
+    
+    
 }
 section.search-home{
+    .ramdom-splash {
+        text-align: center;
+    }
     .search-area{
         form.form-home-search{
             position: relative;
@@ -144,11 +201,30 @@ section.search-home{
         .genders-movie, .cast-movie {
             width: 50%;
             float: left;
+            ul {
+                padding: 0px;
+                column-count: 2;
+            }
         }
+    }
+    .ramdom-splash{
+        .movie-content .movie-img {
+            margin: 0 auto;
+            img{
+                width: 60%;
+            }
+        }
+        
     }
 }
 section.best-movies {
     margin: 30px 0;
+    .best-movie-section{
+        ul{
+            padding: 0px;
+            column-count: 2;
+        }
+    }
 }
 footer.footer-home{
     padding: 25px 0;
@@ -209,5 +285,215 @@ footer.footer-home{
     .row.header-row .form-group.form-check.forgot a#forgot-link {
         float: left;
         margin: 0 20px 0px 0;
+    }
+}
+header.sign{
+    .getting-text{
+        text-align: center;
+        h1{
+            font-size: 21pt;
+        }
+    }
+    .steps-sign {
+        width: fit-content;
+        display: inline-block;
+        a{
+            color: $greyPallete;
+            padding: 10px 15px;
+            font-size: 13pt;
+            background-color: $bgColor;
+            position: relative;
+            i{
+                position: absolute;
+                font-size: 50pt;
+                right: -12px;
+                z-index: 9999;
+                top: -12px;
+                color: $bgColor;
+            }
+        }
+        a.active{
+            background-color: $fgColor;
+            
+            i{
+                color: $fgColor;
+            }
+        }
+    }
+    
+}
+section.first-step{
+    .title-first-step{
+        text-align: center;
+        margin: 10px 0;
+        h1{
+            margin: 0;
+            font-size: 30pt;
+        }
+    }
+    .challeng-txt{
+        text-align: center;
+        p{
+            margin: 5px 0;
+            font-size: 14pt;
+        }
+    }
+    .box {
+        width: 70%;
+        margin: 15px auto;
+        text-align: center;
+        border: 1px solid white;
+        padding: 25px;
+        form.form-step-one{
+            margin: 15% 0;
+            input{
+                width: 80px;
+                display: inline-block;
+            }
+            .btn-first-step{
+                margin: 0 auto;
+                width: 100%;
+                text-align: center;
+                button{
+                    background-color: $bluePallete;
+                    color: white;
+                    padding: 10px 30px;
+                    width: 40%;
+                    
+                }
+            }
+        }
+        
+        
+    }
+}
+section.second-step-signin{
+    margin: 15px 0;
+    .text-second-step{
+        text-align: center;
+        h1{
+            margin: 0;
+            font-size: 30pt;
+        }
+        h3 {
+            background-color: $bluePallete;
+            font-size: 19pt;
+            padding: 10px;
+            margin: 10px 20px;
+        }
+    }
+    .categories-section{
+        border: 1px solid white;
+        ul{
+            column-count: 4;
+            padding: 0px;
+            list-style: none;
+            margin: 0;
+            li.categorie-item{
+                width: 90%;
+                padding: 5px 10px;
+                background-color: $bluePallete;
+                margin: 10px 10px;
+                border-radius: 5px;
+                display: inline-block;
+                label{
+                    color:white;
+                    padding-left: 5px;
+                    margin: 0;
+                    font-size: 13pt;
+                    width: 80%;
+                }
+            }
+            li.categorie-item:hover{
+                opacity: 0.8;
+            }
+        }
+    }
+    .btn-second-step{
+        text-align: center;
+        margin: 10px;
+        button{
+            color: white;
+            background-color: $fgColor;
+        }
+    }
+}
+section.rate-movies{
+    background-color: $bluePallete;
+    margin: 15px 0;
+    .rated-range{
+        margin: 10% 0;
+        .rated-txt{
+            font-size: 15pt;
+            text-align: center;
+        }
+        .progress-bar{
+            background-color: $bgColor;
+        }
+    }
+    .rate-title {
+        text-align: center;
+        h1{
+            font-size: 36pt;
+        }
+        p{
+            margin: 0;
+            font-size: 15pt;
+        }
+    }
+    .finish-btn {
+        margin: 15% 17%;
+        font-size: 20pt;
+    }
+}
+main.main-thrid-step{
+    margin: 15px;
+    .side-bar-thrid-step{
+        background-color: $headerFooterColor;
+        padding: 20px 10px;
+        .favorites-categories,
+        .more-categories{
+            ul{
+                padding: 0;
+                list-style: none;
+                li{
+                    font-size: 15pt;
+                    
+                }
+            }
+        }
+    }
+    .grid-movies{
+        text-align: center;
+        .grid-20-persent{
+            width: 20%;
+            float: left;
+            padding: 5px;
+            position: relative;
+            h1{
+                font-size: 15pt
+            }
+            h2{
+                font-size: 11pt;
+            }
+            .movie-desc{
+                position: relative;
+                .btn-position{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    button{
+                        background-color: $fgColor;
+                        color: white;
+                    }
+                    .title-add{
+                        background-color: $headerFooterColor;
+                        border: 1px solid $fgColor;
+                    }
+                }
+               
+            }
+        }
     }
 }

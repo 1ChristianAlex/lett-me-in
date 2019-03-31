@@ -6,28 +6,18 @@
           <img src="../../../../assets/img/trophy-for-the-best.png" class="img-fluid" alt="">
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-8">
         <div class="best-movie-section">
           <div class="list-of-movie">
             <ul class="list-movie">
-              <li>
-                <a href="#">Black Panter</a>
+              <li *ngFor="let movie of recentMovie">
+                <a href="#">{{movie?.title}}</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="col-md-4 ">
-          <div class="best-cast-section">
-              <div class="list-of-cast">
-                  <ul class="list-cast">
-                      <li>
-                        <a href="#">Scarlet</a>
-                      </li>
-                    </ul>
-              </div>
-            </div>
-      </div>
+     
     </div>
   </div>
 </section>

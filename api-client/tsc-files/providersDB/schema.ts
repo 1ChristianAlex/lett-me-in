@@ -86,9 +86,12 @@ const actors = new Schema({
         required:false
     }
 });
-
+const categorie = new Schema({
+   categorie:String
+})
 export const schemaDB = {
     actors,
     movieSchema,
     User,
+    categorie
 }

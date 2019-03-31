@@ -1,12 +1,14 @@
 export interface User{
-    id?:String,
-    name?:String,
-    userName?:String,
-    email?:String,
-    pw?:String
+    id?:string,
+    name?:string,
+    userName?:string,
+    email?:string,
+    pw?:string,
+    movieChallend?:string,
+    categories?:Array<string>,
+    movies?:Array<string>
 }
 export interface movieInterface{
-    
         movie_id?:Number,
         title?:String,
         phase?:String,
@@ -23,6 +25,13 @@ export interface movieInterface{
         release_date?:String,
         budget?:String,
         gross?:String,
-        time_stamp?:String,
-    
+        time_stamp?:String
+}
+export interface CategorieInte{
+    categorie:string
+}
+export interface ActorInte{
+    name:string,
+    rating:number,
+    alternative_name:string
 }

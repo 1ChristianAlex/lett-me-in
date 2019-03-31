@@ -19,27 +19,41 @@
               </p>
             </div>
           </div>
-          <div class="col-md-12  ">
-            <div class="what-you-discover">
-              <span>What world will you discover?</span>
-              <small>Because Christian liked</small>
-              <div class="movie-discover">
-                
-              </div>
-              <div class="result-discovery">
-                
+          <div class="bg-discobery">
+            <div class="col-md-12">
+              <div class="what-you-discover">
+                <h2>What world will you discover?</h2>
+                <small>Because Christian liked...</small>
+                <div class="movie-discover">
+                  <a href="#" *ngFor="let item of imageRecomend" class="img-home-discovery">
+                    <img src="../../../../assets/img/imageDedault.png" alt="" srcset="" class="img-fluid" >
+                  </a>
+                </div>
+                <div class="arrow-result">
+                  <span><i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="result-discovery">
+                  <small>He discovered</small>
+                  <img src="../../../../assets/img/imageDedault.png" alt="" srcset="" class="img-fluid" >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-12  ">
-            <div class="what-you-discover">
-              <span>What world will you discover?</span>
-              <small>Because Christian liked</small>
-              <div class="movie-discover">
+            <div class="col-md-12">
+              <div class="what-you-discover">
                 
-              </div>
-              <div class="result-discovery">
-                
+                <small>Because Christian liked...</small>
+                <div class="movie-discover">
+                  <a href="#" *ngFor="let item of imageRecomend" class="img-home-discovery">
+                    <img src="../../../../assets/img/imageDedault.png" alt="" srcset="" class="img-fluid" >
+                  </a>
+                </div>
+                <div class="arrow-result">
+                  <span><i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="result-discovery">
+                  <small>He discovered</small>
+                  <img src="../../../../assets/img/imageDedault.png" alt="" srcset="" class="img-fluid" >
+                </div>
               </div>
             </div>
           </div>
@@ -48,6 +62,27 @@
       <div class="col-md-3  ">
         <div class="love-list">
           <h2>Love lists?</h2>
+          <div class="row">
+            <div class="content-love col-md-12" *ngFor="let movie of loveListArr; let i=index">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="info-txt">
+                    <a href=" {{movie[i].category_name}}">
+                      {{movie[i].category_name}}
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <div class="movie-img">
+                    <a href="{{oneMovie.title}}" *ngFor="let oneMovie of movie">
+                        <img src="../../../../assets/img/imageDedault.png" alt="{{oneMovie.title}}" srcset="" class="img-fluid" >
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
         </div>
       </div>
     </div>
