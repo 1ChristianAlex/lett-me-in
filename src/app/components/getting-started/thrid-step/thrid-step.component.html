@@ -40,9 +40,10 @@
       <div class="col-md-3">
         <div class="side-bar-thrid-step">
           <div class="input-movie-search">
-            <form>
+            <form (ngSubmit)= searchCategorie(this.modalSearchBar) class="searchSidebar">
               <div class="form-group">
-                <input type="text" class="form-control" id="search-movie-side" placeholder="Movie, Actor">
+                  <input type="text" class="form-control" id="search-movie-side" [(ngModel)]="modalSearchBar" name="modalSearchBar" placeholder="Movie, Actor">
+                  <button class="btn btn-side-form" type="submit"><i class="fas fa-search"></i></button>
               </div>
             </form>
           </div>

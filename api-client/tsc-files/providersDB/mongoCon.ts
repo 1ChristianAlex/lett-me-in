@@ -127,12 +127,12 @@ public listRecentMovie(){
         });
     });
 }
-public actorRank(){
+public actorRank(rank:string = '1000',limit:number = 10){
     return new Promise((res,rej)=>{
         
         let actor = this.mongoD.model('actor',schemaDB.actors);
-        actor.find({}).$where('this.rating > 1000')
-        .limit(20).sort('name')
+        actor.find({}).$where(`this.rating > ${rank}`)
+        .limit(limit).sort('name')
         .then((actorResult:any)=>{ 
             res(actorResult);
             
@@ -152,7 +152,27 @@ public getCategorie(){
         });
     });
 }
-
+public searchFor( movie:string, categorie:string){
+    return new Promise((res,rej)=>{
+        let movieLike = new RegExp(`${movie}`)
+        let categorieLike = new RegExp(`${categorie}`);
+        
+        let movieM = this.mongoD.model('movie',schemaDB.movieSchema);
+        movieM.find().or([{title:movieLike},{categorie:categorieLike}]).then(arrayMovie=>{
+            
+            let categorieM = this.mongoD.model('categorie',schemaDB.movieSchema);
+            categorieM.find({categorie:categorieLike}).then(arrayCategorie=>{
+                let concat:Array<object> =[];
+                concat.push(arrayMovie,arrayCategorie)
+                res(concat)
+            }).catch(err=>{
+                rej(err)
+            })
+        }).catch(err=>{
+            rej(err)
+        })
+    })
+}
 }
 
 

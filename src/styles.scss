@@ -451,6 +451,18 @@ main.main-thrid-step{
     .side-bar-thrid-step{
         background-color: $headerFooterColor;
         padding: 20px 10px;
+        form.searchSidebar {
+            position: relative;
+            .btn-side-form{
+                position: absolute;
+                background-color: transparent;
+                top: 1px;
+                right: 0;
+                i{
+                    color:$bgColor;
+                }
+            }
+        }
         .favorites-categories,
         .more-categories{
             ul{
@@ -492,7 +504,7 @@ main.main-thrid-step{
                         border: 1px solid $fgColor;
                     }
                 }
-               
+                
             }
         }
     }

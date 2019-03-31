@@ -28,9 +28,6 @@ export class HomeNotLogedComponent implements OnInit {
     }
     else{
       alert("Please, complete de filed correctly");
-      console.log(regex.test(this.userData.email));
-      console.log(this.userData.name.length <= 3)
-      console.log(this.userData.pw.length <= 5)
     }
     
   }

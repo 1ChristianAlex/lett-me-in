@@ -3,6 +3,7 @@ import { mongoDb } from "../providersDB/mongoCon";
 import { User } from "../classes/interfaces";
 import { Auth } from "../classes/auth";
 import { express_conf } from "./express.config";
+import bodyParser = require("body-parser");
 
 const app = express()
 const port:number = express_conf.port;
@@ -57,8 +58,8 @@ app.route('/movieCatego/:categorie/:limit').get((req, res, next)=>{
         console.log(err)
     })
 })
-app.route('/actorRank').get((req, res, next)=>{
-    db.actorRank().then(item=>{
+app.route('/actorRank/:rating/:limit').get((req, res, next)=>{
+    db.actorRank(req.params.rating,parseInt(req.params.limit)).then(item=>{
         res.json(item);
         next();
     }).catch(err=>{
@@ -89,3 +90,38 @@ app.route('/countUser').get((req, res, next)=>{
         console.log(err)
     })
 });
+app.get('/search/',(req,res,next)=>{
+    const verifyParms =() =>{
+        let myParms = {
+            actor:'',
+            movie:'',
+            catergorie:''
+        }
+        for (let i = 0; i < Object.keys(req.query).length; i++) {
+            switch (Object.keys(req.query)[i]) {
+                case 'actor':
+                myParms.actor = req.query.actor
+                break;
+                case 'movie':
+                myParms.movie = req.query.movie
+                break;
+                case 'catergorie':
+                myParms.catergorie = req.query.catergorie
+                break;
+                default:
+                console.log('No parms')
+                break;
+            }
+        }
+        return myParms;
+    }
+
+    let parms = verifyParms()
+    db.searchFor(parms.movie,parms.catergorie).then((searchResult)=>{
+        console.log('chegando',searchResult)
+        res.json(searchResult)
+    }).catch(err =>{
+        console.log(err)
+    })
+    
+})

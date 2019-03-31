@@ -21,6 +21,13 @@ export class RestCService {
       })
     })
   }
+  public getActor(rating:string,limit:number):Promise<any>{
+    return new Promise((res,rej)=>{
+      this.restC.get(`${this.getUrl()}/actorRank/${rating}/${limit}`).subscribe((aJson)=>{
+        res(aJson)
+      })
+    })
+  }
   public getCategorie(categorie:string,limit:number):Promise<any>{
     return new Promise((res,rej)=>{
       this.restC.get(`${this.getUrl()}/movieCatego/${categorie}/${limit}`).subscribe((aJson)=>{

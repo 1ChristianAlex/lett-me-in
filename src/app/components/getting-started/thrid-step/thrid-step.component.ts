@@ -18,6 +18,7 @@ export class ThridStepComponent implements OnInit {
     this.gridCorrection();
     
   }
+  public modalSearchBar:string ='';
   public favCategorie:Array<string>=[];
   public moreCategorie:Array<string>=[];
   public eachMovieByCateg:Array<string>=[];
@@ -75,6 +76,9 @@ export class ThridStepComponent implements OnInit {
       (document.querySelector('.progress .progress-bar') as HTMLElement).style.width = `${this.progressCount*5}%`;
       
     }
+    
+  }
+  public searchCategorie(searchContext:string){
     
   }
 }

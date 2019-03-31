@@ -20,7 +20,7 @@ export class SearchHomeComponent implements OnInit {
   public randomMovie:movieInterface;
   
   private getActor(){
-    this.restC.get('actorRank').then(actors=>{
+    this.restC.getActor('1000',40).then(actors=>{
       this.arrayActor = actors;
     })
   }
