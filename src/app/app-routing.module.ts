@@ -5,13 +5,15 @@ import { GettingStartedComponent } from "./components/getting-started/getting-st
 import { FirstStepComponent } from "./components/getting-started/first-step/first-step.component";
 import { SecondStepComponent } from "./components/getting-started/second-step/second-step.component";
 import { ThridStepComponent } from "./components/getting-started/thrid-step/thrid-step.component";
+import { LastStepComponent } from "./components/getting-started/last-step/last-step.component";
 
 const routes: Routes = [
   { path: '', component: LoginHomeComponent },
   { path: 'signin', component: GettingStartedComponent, children:[
     {path:'first',component:FirstStepComponent},
     {path:'second',component:SecondStepComponent},
-    {path:'thrid',component:ThridStepComponent}] }
+    {path:'thrid',component:ThridStepComponent},
+    {path:'last',component:LastStepComponent}] }
   ];
   @NgModule({
     imports: [RouterModule.forRoot(routes)],

@@ -45,7 +45,6 @@ public createUser(user:User){
             })
             .catch(err=>{
                 rej(err)
-                
             })
             
         }
@@ -152,30 +151,19 @@ public getCategorie(){
         });
     });
 }
-public searchFor( movie:string, categorie:string){
+public searchFor( movie:string){
     return new Promise((res,rej)=>{
-        let movieLike = new RegExp(`${movie}`)
-        let categorieLike = new RegExp(`${categorie}`);
-        
+        let movieLike = new RegExp(`${movie}`);   
         let movieM = this.mongoD.model('movie',schemaDB.movieSchema);
-        movieM.find().or([{title:movieLike},{categorie:categorieLike}]).then(arrayMovie=>{
-            
-            let categorieM = this.mongoD.model('categorie',schemaDB.movieSchema);
-            categorieM.find({categorie:categorieLike}).then(arrayCategorie=>{
-                let concat:Array<object> =[];
-                concat.push(arrayMovie,arrayCategorie)
-                res(concat)
-            }).catch(err=>{
-                rej(err)
-            })
+        movieM.find().or([{title:movieLike},{category_name:movieLike}]).limit(20)
+        .then(arrayMovie=>{
+            res(arrayMovie)
         }).catch(err=>{
             rej(err)
         })
     })
 }
 }
-
-
 
 export class mongoReadFiles{
     private readF = new readJson();

@@ -36,8 +36,17 @@ export class RestCService {
     })
   }
   public postUser(user:User){
-    this.restC.post(`${this.getUrl()}/createUser`,user).subscribe(item=>{
-      console.log(item)
+    return new Promise((res,rej)=>{
+      this.restC.post(`${this.getUrl()}/createUser`,user).subscribe(item=>{
+        res(item);
+      })
+    })
+  }
+  public search(searchString:string){
+    return new Promise((res,rej)=>{
+      this.restC.get(`${this.getUrl()}/search/${searchString}`).subscribe(searchResult=>{
+        res(searchResult)
+      })
     })
   }
 }

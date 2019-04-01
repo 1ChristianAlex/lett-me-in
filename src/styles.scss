@@ -319,6 +319,16 @@ header.sign{
                 color: $fgColor;
             }
         }
+        
+    }
+    .finish.steps-sign{
+        i{
+            font-size: 14pt;
+            color: white !important;
+            right: 0;
+            top: 0;
+            position: relative;
+        }
     }
     
 }
@@ -470,7 +480,11 @@ main.main-thrid-step{
                 list-style: none;
                 li{
                     font-size: 15pt;
-                    
+                    button{
+                        background-color: transparent;
+                        color: $fgColor;
+                        border: none;
+                    }
                 }
             }
         }
@@ -506,6 +520,19 @@ main.main-thrid-step{
                 }
                 
             }
+        }
+    }
+}
+section.last-step{
+    margin: 15px 0;
+    .btn-lett-me-in{
+        text-align: center;
+        margin: 15% 0;
+
+        button{
+            background-color: $fgColor;
+            color:white;
+            font-size: 15pt;
         }
     }
 }

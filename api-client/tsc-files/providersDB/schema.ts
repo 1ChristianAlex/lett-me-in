@@ -1,10 +1,30 @@
 import { Schema } from "mongoose";
 
 const User = new Schema({
-    name:String,
-    userName:String,
-    email:String,
-    password:String
+    name:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    pw:{
+        type:String,
+        required:true
+    },
+    qnt:{
+        type:String,
+        required:false
+    },
+    movies:{
+        type:Array,
+        required:false
+    },
+    categories:{
+        type:Array,
+        required:false
+    }
 })
 const movieSchema = new Schema({
     title:{
@@ -87,7 +107,7 @@ const actors = new Schema({
     }
 });
 const categorie = new Schema({
-   categorie:String
+    categorie:String
 })
 export const schemaDB = {
     actors,

@@ -17,6 +17,7 @@ import { HeaderStartComponent } from './components/getting-started/header-start/
 import { FirstStepComponent } from './components/getting-started/first-step/first-step.component';
 import { SecondStepComponent } from './components/getting-started/second-step/second-step.component';
 import { ThridStepComponent } from './components/getting-started/thrid-step/thrid-step.component';
+import { LastStepComponent } from "./components/getting-started/last-step/last-step.component";
 
 
 
@@ -34,7 +35,8 @@ import { ThridStepComponent } from './components/getting-started/thrid-step/thri
     HeaderStartComponent,
     FirstStepComponent,
     SecondStepComponent,
-    ThridStepComponent
+    ThridStepComponent,
+    LastStepComponent
   ],
   imports: [
     BrowserModule,

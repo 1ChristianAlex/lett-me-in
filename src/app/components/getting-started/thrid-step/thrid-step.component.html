@@ -28,7 +28,7 @@
       </div>
       <div class="col-md-3">
         <div class="finish-btn">
-          <a routerLink=" '/path'">I'm finished rating</a>
+          <a routerLink="/signin/last" (click)="finishingThrid()">I'm finished rating</a>
         </div>
       </div>
     </div>
@@ -51,9 +51,9 @@
             <h2>Favorites Categories</h2>
             <ul>
               <li *ngFor="let fav of favCategorie">
-                <a href="{{fav}}">
+                <button  (click)="searchCategorie(fav)">
                   {{fav}}
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -61,9 +61,9 @@
             <h2>More Categories</h2>
             <ul>
               <li *ngFor="let more of moreCategorie">
-                <a href="{{more}}">
+                <button  (click)="searchCategorie(more)">
                   {{more}}
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -79,7 +79,6 @@
               </div>
               <div class="movie-desc">
                 <h1>{{eachMovie?.title}} - {{eachMovie?.release_year}}</h1>
-                <h2>Start</h2>
                 <div class="btn-position">
                     <button type="button" class="btn" name="{{eachMovie?.title}}" value="{{eachMovie?.title}}" (click)="addMovieUser(eachMovie.title, eachMovie.category_name)">Want to Watch</button>
                 </div>

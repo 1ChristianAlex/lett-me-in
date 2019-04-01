@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
 })
 export class ThridStepComponent implements OnInit {
   
-  constructor(private restC:RestCService) { }
+  constructor(private restC:RestCService, private router:Router) { }
   
   ngOnInit() {
     this.getFavoriteCategorie();
@@ -23,10 +23,18 @@ export class ThridStepComponent implements OnInit {
   public moreCategorie:Array<string>=[];
   public eachMovieByCateg:Array<string>=[];
   public progressCount:number =0;
-
+  
+  public listMovieUser:Array<string> =[''];
+  
   private getFavoriteCategorie(){
-    let userSess:User = JSON.parse(sessionStorage.getItem('userCreation'));
-    this.favCategorie = userSess.categories;
+    if (sessionStorage.getItem('userCreation')!==null) {
+      let userSess:User = JSON.parse(sessionStorage.getItem('userCreation'));
+      this.favCategorie = userSess.categories;
+    }
+    else{
+      this.router.navigate(['/'])
+    }
+    
   }
   private getMoreCategories(){
     this.restC.get('categories').then((categorie:CategorieInte[])=>{
@@ -44,7 +52,6 @@ export class ThridStepComponent implements OnInit {
         this.eachMovieByCateg.push(...each);
       });
     });
-    console.log(this.eachMovieByCateg)
   }
   private gridCorrection(){
     setTimeout(()=>{
@@ -60,25 +67,46 @@ export class ThridStepComponent implements OnInit {
     },1000)
   }
   public addMovieUser(movieValue:string,categorie:Array<string>){
-    const updateUserStorage = (movies,categoriesAdd) =>{
-      let atual:User = JSON.parse(sessionStorage.getItem('userCreation'));
-      let newCateg = atual.categories + categoriesAdd
-      sessionStorage.setItem('userCreation',JSON.stringify({movies:movies,...atual}))
-    }
     if (document.querySelector(`[name="${movieValue}"]`).classList.contains('title-add')) {
       document.querySelector(`[name="${movieValue}"]`).classList.remove('title-add');  
       this.progressCount -=1;
       (document.querySelector('.progress .progress-bar') as HTMLElement).style.width = `${this.progressCount*5}%`;
+      
+      for (let i = 0; i < this.listMovieUser.length; i++) {
+        if (this.listMovieUser[i] == movieValue) {
+          delete this.listMovieUser[i];
+        }
+      }
+      
     }
     else{
       document.querySelector(`[name="${movieValue}"]`).classList.add('title-add');
       this.progressCount += 1;
       (document.querySelector('.progress .progress-bar') as HTMLElement).style.width = `${this.progressCount*5}%`;
       
+      
+        if (this.listMovieUser.includes(movieValue)==false) {
+          this.listMovieUser.push(movieValue)
+      }
     }
-    
+    this.listMovieUser = this.listMovieUser.filter(function(el) { return el; });
   }
   public searchCategorie(searchContext:string){
-    
+
+    let getStringCorretion = (textTo:string)=>{
+      return textTo.charAt(0).toLocaleUpperCase()+ textTo.slice(1)
+    }
+    this.restC.search(getStringCorretion(searchContext)).then((searchResult:any)=>{
+      this.eachMovieByCateg = [];
+      this.eachMovieByCateg = searchResult;
+      this.gridCorrection();
+    })
+  }
+  public finishingThrid(){
+    const updateUserStorage = (movies) =>{
+      let atual:User = JSON.parse(sessionStorage.getItem('userCreation'));
+      sessionStorage.setItem('userCreation',JSON.stringify({...atual,movies:movies}))
+    }
+    updateUserStorage(this.listMovieUser)
   }
 }
