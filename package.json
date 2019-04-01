@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev-client": "concurrently \"cd api-client & tsc -w\" \"nodemon api-client/api/environments.express/index\""
+    "dev-client": "concurrently \"cd api-client & tsc -w\" \"nodemon api-client/api/environments.express/index\"",
+    "production":"concurrently \"npm run dev-client\"\"ng serve --host=35.247.211.56 --port=80\""
   },
   "private": true,
   "dependencies": {
