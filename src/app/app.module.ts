@@ -20,6 +20,9 @@ import { ThridStepComponent } from './components/getting-started/thrid-step/thri
 import { LastStepComponent } from "./components/getting-started/last-step/last-step.component";
 import { MainAppComponent } from './components/main-app/main-app.component';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
+import { MainFeedComponent } from './components/main-feed/main-feed.component';
+import { LeftMainComponent } from './components/left-main/left-main.component';
+import { RightMainComponent } from './components/right-main/right-main.component';
 
 
 
@@ -40,7 +43,10 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
     ThridStepComponent,
     LastStepComponent,
     MainAppComponent,
-    MainHeaderComponent
+    MainHeaderComponent,
+    MainFeedComponent,
+    LeftMainComponent,
+    RightMainComponent
   ],
   imports: [
     BrowserModule,

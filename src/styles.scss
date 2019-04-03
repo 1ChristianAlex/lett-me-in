@@ -588,3 +588,26 @@ header.main-header{
         }
     }
 }
+main.main-app {
+    margin: 15px 0;
+    .main-content{
+        .welcome-box{
+            text-align: center;
+            border: 1px solid white;
+            padding: 15px;
+            .logo-box{
+                img{
+                    height: 70px;
+                }
+            }
+            .box-text{
+                h1{
+                    font-size: 20pt;
+                }
+                h2{
+                    font-size: 14pt;
+                }
+            }
+        }
+    }
+}
