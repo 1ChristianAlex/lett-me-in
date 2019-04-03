@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <nav class="navbar navbar-expand-lg ">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <a class="navbar-brand" routerLink = '/' class="img-logo">
             <img src="../../../assets/img/logo.png" alt="" class="img-fluid">
           </a>
@@ -11,20 +11,28 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="collapse navbar-collapse menu-header" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link menu-link-header" routerLink = '/app' routerLinkActive = 'active'>Feed <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link menu-link-header" routerLink = '/' routerLinkActive = 'active'>Link</a>
+                <a class="nav-link menu-link-header" routerLink = '/' routerLinkActive = 'active'>My movies</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link menu-link-header dropdown-toggle" routerLink = '/' routerLinkActive = 'active' id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown
+                <a class="nav-link menu-link-header dropdown-toggle"  id="BrowserDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Browser
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="BrowserDropdown">
+                  <a class="dropdown-item" routerLink = '/' routerLinkActive = 'active'>Action</a>
+                  <a class="dropdown-item" routerLink = '/' routerLinkActive = 'active'>Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item menu-link-header" routerLink = '/' routerLinkActive = 'active'>Something else here</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link menu-link-header dropdown-toggle"  id="ComunityDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Comunity
+                </a>
+                <div class="dropdown-menu" aria-labelledby="ComunityDropdown">
                   <a class="dropdown-item" routerLink = '/' routerLinkActive = 'active'>Action</a>
                   <a class="dropdown-item" routerLink = '/' routerLinkActive = 'active'>Another action</a>
                   <div class="dropdown-divider"></div>
@@ -39,6 +47,17 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn search-header-btn" type="submit"><i class="fas fa-search"></i></button>
           </form>
+        </div>
+        <div class="col-md-3">
+          <div class="right-option-header">
+            <ul class="ul-right-option">
+              <li class="option-header"><i class="fas fa-bell"></i></li>
+              <li class="option-header"><i class="fas fa-comments"></i></li>
+              <li class="option-header"><i class="fas fa-envelope"></i></li>
+              <li class="option-header"><i class="fas fa-users"></i></li>
+              <li class="option-header"><i class="fas fa-user"></i></li>
+            </ul>
+          </div>
         </div>
       </nav>
     </div>
