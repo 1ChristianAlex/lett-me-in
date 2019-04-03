@@ -528,11 +528,30 @@ section.last-step{
     .btn-lett-me-in{
         text-align: center;
         margin: 15% 0;
-
+        
         button{
             background-color: $fgColor;
             color:white;
             font-size: 15pt;
+        }
+    }
+}
+header.main-header{    
+    ul{
+        margin: 0 auto;
+        .menu-link-header{
+            background-color: $bluePallete;
+            color:white;
+        }
+        .menu-link-header.active{
+            background-color: $fgColor;
+            color:white;
+        }
+    }    
+    .search-header{
+        position: relative;
+        .search-header-btn{
+            position: absolute;
         }
     }
 }

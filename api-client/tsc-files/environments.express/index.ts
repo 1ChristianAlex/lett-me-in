@@ -2,10 +2,10 @@ import express from "express";
 import { mongoDb } from "../providersDB/mongoCon";
 import { User } from "../classes/interfaces";
 import { Auth } from "../classes/auth";
-import { express_conf } from "./express.config";
+//import { express_conf } from "./express.config";
 
 const app = express()
-const port:number = express_conf.port;
+const port:number = 3000;
 const hostname:string = 'localhost';
 const db = new mongoDb();
 const auth = new Auth()

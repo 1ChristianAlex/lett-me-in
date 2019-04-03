@@ -18,6 +18,8 @@ import { FirstStepComponent } from './components/getting-started/first-step/firs
 import { SecondStepComponent } from './components/getting-started/second-step/second-step.component';
 import { ThridStepComponent } from './components/getting-started/thrid-step/thrid-step.component';
 import { LastStepComponent } from "./components/getting-started/last-step/last-step.component";
+import { MainAppComponent } from './components/main-app/main-app.component';
+import { MainHeaderComponent } from './components/main-header/main-header.component';
 
 
 
@@ -36,7 +38,9 @@ import { LastStepComponent } from "./components/getting-started/last-step/last-s
     FirstStepComponent,
     SecondStepComponent,
     ThridStepComponent,
-    LastStepComponent
+    LastStepComponent,
+    MainAppComponent,
+    MainHeaderComponent
   ],
   imports: [
     BrowserModule,
