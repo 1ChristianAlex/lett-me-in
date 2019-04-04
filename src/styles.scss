@@ -588,8 +588,105 @@ header.main-header{
         }
     }
 }
+
 main.main-app {
     margin: 15px 0;
+    .lef-content{
+        .curernt-movie{
+            .current-icon{
+                h3{
+                    font-size: 14pt;
+                    margin: 15px 0;
+                }
+                i{
+                    font-size: 30pt;
+                    position: relative;
+                    top: 8px;
+                }
+            }
+            .search-current-movie{
+                position: relative;
+                input{
+                    width: 100%;
+                }
+                .search-current-movie-btn{
+                    position: absolute;
+                    right: 0;
+                    top: 1px;
+                }
+            }
+            a{
+                margin: 15px 0 0 0;
+                display: inline-block;
+            }
+        }
+        .watching-challenge{
+            border-top: 1px solid white;
+            margin: 10px 0;
+            padding-top: 10px;
+            .watching-title{
+                h3{
+                    font-size: 15pt;
+                }
+                span{
+                    font-size: 12pt;
+                }
+            }
+            .img-waching{
+                width: 54%;
+                float: left;
+            }
+            .form-challeng{
+                width: 45%;
+                float: left;
+                label {
+                    color: white;
+                }
+                input{
+                    width: 100%;
+                }
+                .input-challeng-left-btn{
+                    background-color: $bluePallete;
+                    padding: 5px 3px;
+                    color:white;
+                }
+            }
+        }
+        .want-to-watch{
+            margin:15px 0;
+            .want-title{
+                h3{
+                    font-size: 17pt;
+                }
+            }
+            .want-content{
+                span{
+                    font-size: 15pt;
+                    i{
+                        font-size: 30pt;
+                    }
+                }
+            }
+        }
+        .movie-shel{
+            margin: 15px 0;
+            .movie-left-title{
+                h3{
+                    font-size: 17pt;
+                }
+            }
+            .movie-shell-list{
+                ul{
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                    li{
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
     .main-content{
         .welcome-box{
             text-align: center;
