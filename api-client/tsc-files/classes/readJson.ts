@@ -22,4 +22,10 @@ export class readJson {
         let txt = JSON.parse(data.toString());
         return txt;
     }
+    public feedMovie():Array<object>{
+        let data =  fs.readFileSync('./api-client/bk-json/feedMovie.json');
+        let txt = JSON.parse(data.toString());
+        return txt;
+    }
 }
+

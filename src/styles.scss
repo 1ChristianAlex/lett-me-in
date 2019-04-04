@@ -706,5 +706,17 @@ main.main-app {
                 }
             }
         }
+        .post-content{
+            display: block;
+            width: 100%;
+            border: 1px solid white;
+            .post-little-logo{
+                position: absolute;
+                width: 5%;
+                img{
+                    border-radius: 50%;
+                }
+            }
+        }
     }
 }

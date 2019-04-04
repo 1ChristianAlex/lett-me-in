@@ -89,11 +89,18 @@ app.route('/countUser').get((req, res, next)=>{
     })
 });
 app.get('/search/:searchString',(req,res,next)=>{
-   
+    
     db.searchFor(req.params.searchString).then((searchResult)=>{
-        res.json(searchResult)
+        res.json(searchResult) 
         next();
     }).catch(err =>{
         console.log(err)
     })
+})
+app.get('/feed/:posts',(req,res,next)=>{
+    
+    db.getFeedPosts(req.params.posts).then(result =>{
+        res.json(result);
+        next()
+    }).catch(err => console.log(err));
 })

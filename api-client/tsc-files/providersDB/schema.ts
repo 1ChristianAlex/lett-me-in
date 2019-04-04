@@ -108,10 +108,98 @@ const actors = new Schema({
 });
 const categorie = new Schema({
     categorie:String
-})
+});
+const feedMovie = new Schema({
+    Title:{
+        required:false,
+        type:String
+    },
+    Year:{
+        required:false,
+        type:String
+    },
+    Rated:{
+        required:false,
+        type:String
+    },
+    Released:{
+        required:false,
+        type:String
+    },
+    Runtime:{
+        required:false,
+        type:String
+    },
+    Genre:{
+        required:false,
+        type:String
+    },
+    Director:{
+        required:false,
+        type:String
+    },
+    Writer:{
+        required:false,
+        type:String
+    },
+    Actors:{
+        required:false,
+        type:String
+    },
+    Plot:{
+        required:false,
+        type:String
+    },
+    Language:{
+        required:false,
+        type:String
+    },
+    Country:{
+        required:false,
+        type:String
+    },
+    Awards:{
+        required:false,
+        type:String
+    },
+    Poster:{
+        required:false,
+        type:String
+    },
+    Metascore:{
+        required:false,
+        type:String
+    },
+    imdbRating:{
+        required:false,
+        type:String
+    },
+    imdbVotes:{
+        required:false,
+        type:String
+    },
+    imdbID:{
+        required:false,
+        type:String
+    },
+    Type:{
+        required:false,
+        type:String
+    },
+    Response:{
+        required:false,
+        type:String
+    },
+    Images:{
+        required:false,
+        type:Array
+    },
+
+});
 export const schemaDB = {
     actors,
     movieSchema,
     User,
-    categorie
+    categorie,
+    feedMovie
 }
